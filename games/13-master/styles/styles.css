@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    position: relative;
+    padding: 0;
+    background-color: #000;
+    font-family: "Lucida Console", monospace;
+    width: 100%;
+    height: 100%;
+    color: #d27105;
+}
+
+.container {
+    margin: 1rem auto;
+    max-width: 1080px;
+    text-align: center;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar {
+    width: 200px;
+    color: #d27105;
+    border: 2px solid #d27105;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.w {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.w-text.small {
+    font-size: 1rem;
+}
+
+.cell.fade {
+    position: relative;
+}
+
+.cell.fade::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #d27105;
+}
+
+.item.fade {
+    background: none;
+}
+
+.holder {
+    width: 640px;
+    height: 640px;
+    margin: 0 1rem;
+    line-height: 0;
+    background: #000;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.cell {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 1rem;
+    font-size: .5rem;
+    background: #555 url("../images/w.png");
+}
+
+.free {
+    background: none;
+}
+
+.player {
+    background: url("../images/player.png");
+}
+
+.finish {
+    background: url("../images/downpass.png");
+}
+
+.item {
+    background: url("../images/t.png");
+}
+
+.enemy[data-enemy-type="skeleton"] {
+    background: url("../images/skeleton.png");
+}
+
+.enemy[data-enemy-type="crab"] {
+    background: url("../images/crab.png");
+}
+
+.enemy[data-enemy-type="wrath"] {
+    background: url("../images/wrath.png");
+}
+
+.battle {
+    position: absolute;
+    width: 340px;
+    left: calc(50% - 170px);
+    top: 240px;
+    padding: 32px 10px;
+    background: #000;
+    border: 4px solid #d27105;
+    color: #d27105;
+    box-shadow: 6px 6px #000;
+}
+
+.card {
+    position: absolute;
+    width: 260px;
+    left: calc(50% - 130px);
+    top: 240px;
+    padding: 16px 8px;
+    background: #000;
+    border: 4px solid #d27105;
+    box-shadow: 6px 6px #000;
+}
+
+.card .t-stat {
+    text-align: center;
+}
+
+.t-name {
+    padding: .5rem 2rem;
+    font-size: 1.25rem;
+    text-align: center;
+    background-color: #d27105;
+    border-radius: 4px;
+    color: #000;
+}
+
+.t-desc {
+    padding: .5rem;
+    background-color: #000;
+    color: #d27105;
+    text-align: center;
+}
+
+.t-stat {
+    width: 100%;
+    padding: 0.25rem 1rem;
+    text-align: left;
+    color: #d27105;
+    font-size: 1.15rem;
+}
+
+.card-button {
+    cursor: pointer;
+    display: inline-block;
+    color: #d27105;
+    text-align: center;
+    border: 2px solid #d27105;
+    padding: .5rem;
+    margin: 1rem 1rem 0;
+    width: 208px;
+}
+
+.card-button:hover {
+    background-color: #d27105;
+    color: #000;
+}
+
+.stat-holder {
+    font-size: 0.9rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.sidebar h5 {
+    margin: 1rem .25rem .25rem;
+}
+
+.sidebar-itemname {
+    font-weight: bolder;
+}
+
+.rare {
+    border: dashed 1px #d27105;
+}
+
+.legendary {
+    border: solid 1px #d27105;
+}
+
+.title {
+    font-size: 1.5rem;
+    margin: 1rem auto;
+    display: block;
+    width: 100%;
+}
+
+.gameover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    padding: 3rem;
+    line-height: 2;
+}
+
+a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #d27105;
+}
+
+a:visited {
+    color: #d27105;
+}

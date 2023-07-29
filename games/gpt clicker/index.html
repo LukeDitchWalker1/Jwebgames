@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clicker Game</title>
+	<style>
+		body {
+			background-color: #f5f5f5;
+			font-family: Arial, sans-serif;
+			text-align: center;
+			margin-top: 50px;
+		}
+		h1 {
+			font-size: 50px;
+			color: #444;
+		}
+		.clicker {
+			display: inline-block;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0px 0px 10px #aaa;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			margin: 20px;
+		}
+		.clicker:hover {
+			transform: scale(1.1);
+		}
+		.upgrade {
+			display: inline-block;
+			padding: 10px;
+			background-color: #eee;
+			box-shadow: 0px 0px 10px #aaa;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			margin: 5px;
+		}
+		.upgrade:hover {
+			transform: scale(1.1);
+		}
+		.achievement {
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px #aaa;
+			padding: 10px;
+			margin: 20px;
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+	<h1>Clicker Game</h1>
+	<div id="clicker" class="clicker">0</div>
+	<br>
+	<div id="double-click-upgrade" class="upgrade">Double Clicks (Cost: 10)</div>
+	<div id="auto-click-upgrade" class="upgrade">Auto Clicks (Cost: 100)</div>
+	<br>
+	<button id="reset-btn">Reset Game</button>
+	<div id="achievements"></div>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			let count = 0;
+			let clickValue = 1;
+			let doubleClickUpgradeCost = 10;
+			let autoClickUpgradeCost = 100;
+			let autoClickIntervalId;
+			const countSpan = document.getElementById("clicker");
+			const doubleClickUpgrade = document.getElementById("double-click-upgrade");
+			const autoClickUpgrade = document.getElementById("auto-click-upgrade");
+			const resetBtn = document.getElementById("reset-btn");
+			const achievements = document.getElementById("achievements");
+
+			// Click event listener
+			countSpan.addEventListener("click", function() {
+				count += clickValue;
+				countSpan.innerHTML = count;
+			});
+
+			// Double click upgrade event listener
+			doubleClickUpgrade.addEventListener("click", function() {
+				if (count >= doubleClickUpgradeCost) {
+					clickValue *= 2;
+					count -= doubleClickUpgradeCost;
+					doubleClickUpgradeCost = Math.round(doubleClickUpgradeCost * 1.2);
+					doubleClickUpgrade.innerHTML = `Double Clicks (Cost: ${doubleClickUpgradeCost})`;
+					countSpan.innerHTML = count;
+				}
+			});
+
+			// Auto click upgrade event listener
+            autoClickUpgrade.addEventListener("click", function() {
+				if (count >= autoClickUpgradeCost) {
+					count -= autoClickUpgradeCost;
+					autoClickUpgradeCost = Math.round(autoClickUpgradeCost * 1.5);
+					autoClickUpgrade.innerHTML = `Auto Clicks (Cost: ${autoClickUpgradeCost})`;
+					autoClickIntervalId = setInterval(function() {
+						count += clickValue;
+						countSpan.innerHTML = count;
+					}, 1000);
+					countSpan.innerHTML = count;
+				}
+			});
+
+			// Reset game event listener
+			resetBtn.addEventListener("click", function() {
+				count = 0;
+				clickValue = 1;
+				doubleClickUpgradeCost = 10;
+				autoClickUpgradeCost = 100;
+				clearInterval(autoClickIntervalId);
+				doubleClickUpgrade.innerHTML = `Double Clicks (Cost: ${doubleClickUpgradeCost})`;
+				autoClickUpgrade.innerHTML = `Auto Clicks (Cost: ${autoClickUpgradeCost})`;
+				countSpan.innerHTML = count;
+				achievements.innerHTML = "";
+			});
+
+			// Achievements
+			let achievementsUnlocked = [];
+			const checkAchievementsIntervalId = setInterval(function() {
+				if (count >= 10 && !achievementsUnlocked.includes("10 clicks")) {
+					achievementsUnlocked.push("10 clicks");
+					achievements.innerHTML += "<div class='achievement'>You got 10 clicks!</div>";
+					clearInterval(checkAchievementsIntervalId);
+				}
+			}, 100);
+
+			// Infinite upgrades
+			const infiniteUpgrades = function() {
+				const upgradeIntervalId = setInterval(function() {
+					if (count >= doubleClickUpgradeCost) {
+						doubleClickUpgrade.click();
+					} else if (count >= autoClickUpgradeCost) {
+						autoClickUpgrade.click();
+					} else {
+						clearInterval(upgradeIntervalId);
+					}
+				}, 100);
+			}
+
+			// Start infinite upgrades
+			infiniteUpgrades();
+
+		});
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple RPG Game</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Simple RPG Game</h1>
+	</header>
+	<main>
+		<div class="character">
+			<h2>Your Character</h2>
+			<p>Name: <span id="charName"></span></p>
+			<p>Level: <span id="charLevel"></span></p>
+			<p>HP: <span id="charHP"></span></p>
+			<p>Strength: <span id="charStrength"></span></p>
+			<p>Defense: <span id="charDefense"></span></p>
+			<p>Gold: <span id="charGold"></span></p>
+			<p>Inventory:</p>
+			<ul id="charInventory">
+                <li>Potion x5</li>
+                <li>Antidote x3</li>
+                <li>Mana Elixir x2</li>
+            </ul>
+            
+		</div>
+		<div class="enemy">
+			<h2>Enemy</h2>
+			<p>Name: <span id="enemyName"></span></p>
+			<p>HP: <span id="enemyHP"></span></p>
+			<p>Strength: <span id="enemyStrength"></span></p>
+			<p>Defense: <span id="enemyDefense"></span></p>
+			<p>Gold: <span id="enemyGold"></span></p>
+		</div>
+		<button onclick="attack()">Attack</button>
+		<p id="battleResult"></p>
+	</main>
+	<script src="script.js"></script>
+</body>
+</html>
