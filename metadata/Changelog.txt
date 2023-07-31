@@ -15,3 +15,5 @@ Ver 2.30 (Seventh release, added more games)
 Ver 2.31 (Eigth release, added a nav bar at the top, removed back button, and put the Atticus Badlands behind a password to not piss him off)
 
 Ver 2.40 (Ninth release, Added like 20 scratch games) 
+
+Ver 2.41 (Tenth release, added a theme switcher)
