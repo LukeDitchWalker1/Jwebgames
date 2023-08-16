@@ -17,3 +17,5 @@ Ver 2.31 (Eigth release, added a nav bar at the top, removed back button, and pu
 Ver 2.40 (Ninth release, Added like 20 scratch games) 
 
 Ver 2.41 (Tenth release, added a theme switcher)
+
+Ver 2.43 (Twelfth realese, added cookie clicker)
