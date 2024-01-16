@@ -1,2 +1,1 @@
 This is a collection of web based games i compiled into one repository and added loaders to access all of the games easily.
-If you want to contact me please open an issue or if you have my discord talk to me there and we can continue.

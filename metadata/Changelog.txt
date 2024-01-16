@@ -21,3 +21,5 @@ Ver 2.41 (Tenth release, added a theme switcher)
 Ver 2.43 (Twelfth realese, added cookie clicker and Chrome Dino Game)
 
 Ver 2.44 (Thirteenth release, updated Cookie Clicker to version 2.048 and added mods)
+
+Ver 2.60 (Seventeenth release, updated lots of crap)
